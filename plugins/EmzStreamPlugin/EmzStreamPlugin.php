@@ -125,7 +125,5 @@ class EmzStreamPlugin extends Plugin
         $crudService->delete('s_articles_attributes', 'emz_infobox_01');
         $crudService->delete('s_articles_attributes', 'emz_infobox_02');
         $crudService->delete('s_articles_attributes', 'emz_infobox_03');
-
-        $this->generateAttributeModels();
     }
 }

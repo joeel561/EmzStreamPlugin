@@ -5,7 +5,9 @@
 
     <services>
         <!-- @todo Add your services here -->
-        <service id="emz_stream_plugin.subscriber.frontend" class="EmzStreamPlugin\Subscriber\Frontend">
+        <service id="emz_stream_plugin.subscriber.template_registration" class="EmzStreamPlugin\Subscriber\TemplateRegistration">
+             <argument>%emz_stream_plugin.plugin_dir%</argument>
+            <argument type="service" id="template"/>
             <tag name="shopware.event_subscriber" />
         </service>
 

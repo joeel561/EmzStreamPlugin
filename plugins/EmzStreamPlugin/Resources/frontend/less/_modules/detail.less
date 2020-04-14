@@ -10,7 +10,7 @@
 
 .product--details {
     .product--header {
-        width: 35%;
+        width: 100%;
         float: left;
         display: inline-block;
         .unitize(padding-top,50);
@@ -30,6 +30,39 @@
             display: inline-block;
             .unitize(margin-top,10);
             font-weight: bold;
+        }
+    }
+
+    .buybox--inner {
+        width:90%;
+        margin: 0 auto;
+    }
+
+    .product--tax {
+        a {
+            color:#fff;
+        }
+    }
+
+    .buybox--button {
+        background-image: none;
+        text-transform: uppercase;
+        background:transparent;
+        border: 2px dotted #d6929d;
+        .unitize(line-height,20);
+        width:90%;
+        .unitize(padding-right,10);
+    }
+
+    .product--buybox {
+        .unitize-padding(15,15);
+        color: #fff;
+
+        .price--content {
+            .unitize(font-size,33);
+            .unitize(padding-top,20);
+            .unitize(margin-bottom,10);
+            color: #fff;
         }
     }
 }
@@ -93,17 +126,28 @@
 
     .product--details {
         .product--image-container {
-            width: 80%;
             float: none;
             margin: 0 auto;
             z-index: 0;
         }
 
+        .product--header {
+            width: 35%;
+        }
+
+        .buybox--button {
+            transition: all ease-in .3s;
+            &:hover {
+                border-color:#673941;
+                transition : all ease-out .3s;
+            }
+        }
+
         .product--buybox {
             position: absolute;
-            .unitize(bottom,-220);
-            width:40%;
-            right: 0;
+            .unitize(bottom,80);
+            width:30%;
+            right:20%;
             background:@brand-primary;
             z-index: 10;
         }
@@ -114,5 +158,18 @@
 @media screen and (min-width: @desktopViewportWidth) {
     .image-slider--container {
         .unitize(height,660);
+    }
+
+    .product--details {
+        .product--image-container {
+            width: 80%;
+        }
+
+        .product--buybox {
+            position: absolute;
+            .unitize(bottom,80);
+            width:30%;
+            right:20%;
+        }
     }
 }

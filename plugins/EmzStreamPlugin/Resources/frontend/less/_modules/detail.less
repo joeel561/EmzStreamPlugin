@@ -1,6 +1,6 @@
 .is--ctl-detail {
     .container {
-        .unitize(max-width,1690);
+        .unitize(max-width,1550);
     }
 
     .content-main--inner {
@@ -10,11 +10,9 @@
 
 .product--details {
     .product--header {
-        width: 100%;
-        float: left;
         display: inline-block;
         .unitize(padding-top,50);
-        .unitize(padding-left,70);
+        .unitize(padding-left,25);
     
         .product--title {
             text-transform: uppercase;
@@ -50,25 +48,41 @@
         background:transparent;
         border: 2px dotted #d6929d;
         .unitize(line-height,20);
-        width:90%;
+        width:100%;
         .unitize(padding-right,10);
     }
 
     .product--buybox {
         .unitize-padding(15,15);
         color: #fff;
+        background:@brand-primary;
+        width:90%;
+        position: relative;
+        margin:0 auto;
+        left:auto;
+        right:auto;
+        float: none;
+        .unitize(margin-bottom,70);
+        .unitize(margin-top,30);
+        bottom:auto;
 
         .price--content {
-            .unitize(font-size,33);
+            .unitize(font-size,25);
             .unitize(padding-top,20);
             .unitize(margin-bottom,10);
             color: #fff;
         }
     }
+
+    .product--image-container {
+        width: 80%;
+        margin: 0 auto;
+    }
 }
 
 
 .image-slider--container {
+
     .arrow {
         border: none;
         background-color: transparent;
@@ -95,6 +109,7 @@
 .emz-info--boxes {
     width: 100%;
     .unitize(margin-top,50);
+    display:none;
 
     .box {
         display: flex;
@@ -114,9 +129,28 @@
 }
 
 .product--detail-upper {
-    width: 60%;
+    width: 100%;
     display: inline-block;
     position: relative;
+}
+
+@media screen and (min-width: @phoneLandscapeViewportWidth) {
+    .product--details {
+        .buybox--form {
+            width: 100%;
+        }
+
+        .buybox--inner {
+            width:70%;
+        }
+
+        .product--buybox {
+            width:60%;
+        }
+    }
+    .image-slider--container {
+        .unitize(height,240);
+    }
 }
 
 @media screen and (min-width: @tabletViewportWidth) {
@@ -132,7 +166,8 @@
         }
 
         .product--header {
-            width: 35%;
+            width: 80%;
+            .unitize(padding-left,70);
         }
 
         .buybox--button {
@@ -145,22 +180,62 @@
 
         .product--buybox {
             position: absolute;
-            .unitize(bottom,80);
-            width:30%;
-            right:20%;
+            .unitize(bottom,10);
+            width:45%;
+            right:5%;
             background:@brand-primary;
             z-index: 10;
+
+            .price--content {
+                .unitize(font-size,33);
+            }
         }
+    }
+
+    .image-slider--container {
+        .unitize(height,450);
     }
 }
 
+@media screen and (min-width: @tabletLandscapeViewportWidth) {
+    .product--details {
+        .product--image-container {
+            width:100%;
+        }
 
+        .product--header {
+            width:32%;
+            float:left;
+        }
+
+        .product--detail-upper {
+            width:60%;
+            .unitize(padding-top,70);
+        }
+
+        .buybox--inner {
+            width:90%;
+        }
+    }
+
+    .emz-info--boxes {
+        display: block;
+    }
+}
 @media screen and (min-width: @desktopViewportWidth) {
     .image-slider--container {
         .unitize(height,660);
     }
 
+    .product--detail-upper {
+        width:60%;
+    }
+
     .product--details {
+        .product--header {
+            width:33%;
+        }
+
         .product--image-container {
             width: 80%;
         }
@@ -168,7 +243,7 @@
         .product--buybox {
             position: absolute;
             .unitize(bottom,80);
-            width:30%;
+            width:35%;
             right:20%;
         }
     }

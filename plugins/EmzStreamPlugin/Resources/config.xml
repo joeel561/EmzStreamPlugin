@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.3/engine/Shopware/Components/Plugin/schema/config.xsd">
+    <elements>
+        <element type='select' scope='shop'>
+            <name>Emotion World Element</name>
+            <label lang='de'>Einkaufswelt Element</label>
+            <label lang='en'> Emotion World Element</label>
+            <description lang='de'>Einkaufswelten Element für die Detailseite</description>
+            <description lang='en'>Emotion World Element for the Detailpage</description>
+            <store>
+                <![CDATA[Ext.define('Emz.EmotionList.Form', {
+                    extend: 'Ext.data.Store',
+                    fields: [
+                        { name:'id', type: 'int' },
+                        { name:'name', type: 'string' }
+                    ],
+                    autoLoad: true,
+                    pageSize: 25,
+                    proxy: {
+                        type: 'ajax',
+                        url: window.location.href.substr(0, window.location.href.indexOf('backend')) + 'backend/Emotion/List',
+                        reader: {
+                            type: 'json',
+                            root: 'data',
+                            totalProperty: 'total'
+                        }
+                    }
+                    }).create();//new ]]>
+            </store>
+            <options>
+                <valueField>id</valueField>
+                <displayField>name</displayField>
+                <isCustomStore>true</isCustomStore>
+            </options>
+        </element>
+    </elements>
+</config>

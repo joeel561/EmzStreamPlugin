@@ -3,6 +3,7 @@
 namespace EmzStreamPlugin\Subscriber;
 
 use Enlight\Event\SubscriberInterface;
+
 class TemplateRegistration implements SubscriberInterface
 {
     /**

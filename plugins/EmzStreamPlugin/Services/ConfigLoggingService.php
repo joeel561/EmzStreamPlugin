@@ -43,13 +43,14 @@ class ConfigLoggingService implements ConfigLoggingServiceInterface
     public function  __construct(
         string $pluginName,
         string $pluginDir,
-        CachedConfigReader $cacheConfigReader,
+        CachedConfigReader $cachedConfigReader,
         ModelManager $modelManager,
         ContextServiceInterface $contextService,
         Logger $logger
     ) {
         $this->pluginName = $pluginName; 
         $this->pluginDir = $pluginDir;
+        $this->modelManager = $modelManager;
         $this->cachedConfigReader = $cachedConfigReader;
         $this->contextService  = $contextService;
         $this->logger = $logger;
@@ -58,7 +59,7 @@ class ConfigLoggingService implements ConfigLoggingServiceInterface
     public function getPluginConfig()
     {
         $context = $this->contextService->getShopContext();
-        $shopRepo = $this->ModelManager->getRespository(Shop::class);
+        $shopRepo = $this->modelManager->getRepository(Shop::class);
         $shop = null;
 
 

@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.3/engine/Shopware/Components/Plugin/schema/config.xsd">
     <elements>
         <element type='select' scope='shop'>
-            <name>Emotion World Element</name>
+            <name>EmotionWorldElement</name>
             <label lang='de'>Einkaufswelt Element</label>
             <label lang='en'> Emotion World Element</label>
             <description lang='de'>Einkaufswelten Element für die Detailseite</description>

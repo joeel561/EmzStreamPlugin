@@ -11,5 +11,21 @@
             <tag name="shopware.event_subscriber" />
         </service>
 
+
+        <service id="emz_stream_plugin.service.config_logging_service" class="EmzStreamPlugin\Services\ConfigLoggingService">
+            <argument>%emz_stream_plugin.plugin_name%</argument>
+            <argument>%emz_stream_plugin.plugin_dir%</argument>
+            <argument type="service" id="shopware.plugin.cached_config_reader" />
+            <argument type="service" id="models" />
+            <argument type="service" id="shopware_storefront.context_service" />
+            <argument type="service" id="pluginlogger" />
+        </service>
+
+        <service id="emz_stream_plugin.subscriber.detail" class="EmzStreamPlugin\Subscriber\Detail">
+            <argument type="service" id='emotion_device_configuration' />
+            <argument type="service" id='emz_stream_plugin.service.config_logging_service' />
+            <tag name="shopware.event_subscriber" />
+        </service>
+
     </services>
 </container>

@@ -9,6 +9,7 @@ use Shopware\Components\Plugin\Context\UpdateContext;
 use Shopware\Components\Plugin\Context\ActivateContext;
 use Shopware\Bundle\AttributeBundle\Service\CrudService;
 use Shopware\Bundle\AttributeBundle\Service\TypeMapping;
+use Shopware\Components\Emotion\ComponentInstaller;
 
 /**
  * Shopware-Plugin EmzStreamPlugin.
@@ -16,7 +17,7 @@ use Shopware\Bundle\AttributeBundle\Service\TypeMapping;
 class EmzStreamPlugin extends Plugin
 {
 
-        /**
+    /**
      * Install-method
      *
      * @param InstallContext $context
@@ -26,6 +27,7 @@ class EmzStreamPlugin extends Plugin
     public function install(InstallContext $context)
     {
         $this->createOrUpdateAttributes();
+        $this->createEmotionElements();
 
         $context->scheduleClearCache(InstallContext::CACHE_LIST_ALL);
     }
@@ -54,6 +56,7 @@ class EmzStreamPlugin extends Plugin
     public function update(UpdateContext $context)
     {
         $this->createOrUpdateAttributes();
+        $this->createEmotionElements();
 
         $context->scheduleClearCache(UpdateContext::CACHE_LIST_ALL);
     }
@@ -68,6 +71,35 @@ class EmzStreamPlugin extends Plugin
     public function activate(ActivateContext $context)
     {
         $context->scheduleClearCache(ActivateContext::CACHE_LIST_ALL);
+    }
+
+    private function createEmotionElements()
+    {
+        $this->emotionComponentInstaller = $this->container->get('shopware.emotion_component_installer');
+
+        $emzEmotionElement = $this->emotionComponentInstaller->createOrUpdate(
+            $this->getName(),
+            'EmotionElement',
+            [
+                'name' => 'Emotion Element',
+                'template' => 'emotion_element',
+                'xtype' => 'emotion-components-base',
+                'cls' => 'emotion-emz-element',
+                'description' => 'Emotion Element for the detail page.'
+            ]
+        );
+
+        $emzEmotionElement->createTextField([
+            'name' => 'emz_headline',
+            'fieldLabel' => 'Headline',
+            'allowBlank' => true
+        ]);
+
+        $emzEmotionElement->createMediaField([
+            'name' => 'emz_image',
+            'fieldLabel' => 'Background Image',
+            'allowBlank' => false
+        ]);
     }
 
         /**

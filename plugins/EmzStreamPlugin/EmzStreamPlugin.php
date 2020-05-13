@@ -147,6 +147,18 @@ class EmzStreamPlugin extends Plugin
                 'custom' => false,
             ]
         );
+
+        $crudService->update(
+            's_emotion_attributes',
+            'emz_css_box',
+            TypeMapping::TYPE_STRING,
+            [
+                'label' => 'CSS Class Emotion World',
+                'displayInBackend' => true,
+                'position' => 10,
+                'custom' => false,
+            ]
+        );
     }
 
     private function removeAttributes()
@@ -157,5 +169,6 @@ class EmzStreamPlugin extends Plugin
         $crudService->delete('s_articles_attributes', 'emz_infobox_01');
         $crudService->delete('s_articles_attributes', 'emz_infobox_02');
         $crudService->delete('s_articles_attributes', 'emz_infobox_03');
+        $crudService->delete('s_emotion_attributes', 'emz_css_box');
     }
 }

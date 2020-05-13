@@ -1,23 +1,173 @@
 .emz-emotion--wrapper {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+
     .emz-image-wrapper {
-        position: relative;
         img {
-            .unitize-padding(0,27);
+            width: 100%;
         }
     }
 
     .emz-headline-box {
         position: absolute;
         .unitize(bottom,20);
-        .unitize(left,50);
-        max-width: 60%;
+        .unitize(left,20);
+        max-width: 80%;
 
         h3 {
             margin:0;
-            .unitize(font-size,28);
+            .unitize(font-size,22);
             text-transform: uppercase;
             color:#fff;
-            .unitize(line-height,33);
+            .unitize(line-height,23);
+        }
+    }
+}
+.is--ctl-detail {
+    .emotion--wrapper {
+        .unitize(margin-top,50);
+        .unitize-padding(30,30);
+        background:#f7f7f7;
+    } 
+    .emotion--container {
+        background: #f7f7f7;
+    } 
+    .panel {
+        background: #f7f7f7;
+    }  
+
+    .product-slider--arrow {
+        background: transparent;
+        color: #1a1a1a;
+        border: none;
+        .unitize(font-size,26);
+        &.arrow--next {
+            right: 0;
+            border-radius: 0;
+
+            &:before {
+                font-family: 'emz-icons';
+                content: '\e80f';
+            }
+        }
+
+        &.arrow--prev {
+            left: 0;
+            border-radius: 0;
+
+            &:before {
+                font-family: 'emz-icons';
+                content: '\e80e';
+            }
+        }
+    }
+
+    .emotion--product-slider {
+        .box--emotion {
+            background: #fff;
+            transition: all ease-in .3s;
+            &:hover {
+                box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+            }
+
+            .product--badges {
+                left: 0;
+                .product-badge {
+                    border-radius: 0;
+                }
+
+                .badge--recommend {
+                    background:#607D8B;
+                }
+            }
+
+            .product--title {
+                .unitize(font-size,14);
+                text-transform: uppercase;
+                font-weight: 500;
+                .unitize-padding(0,12);
+            }
+
+            .product--price {
+                .price--default {
+                    font-weight: 600;
+                    .unitize(font-size,15);
+                    color: @brand-primary;
+                }
+            }
+        }
+    }
+}
+
+.emotion--product-slider {
+    .product-slider--title {
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+        .unitize(font-size,22);
+        border: none;
+        color: @brand-primary;
+    }
+    .product-slider--title ~ .product-slider--content {
+        .unitize(padding-top,40);
+    }
+}
+
+@media screen and (min-width: @tabletViewportWidth) {
+    .emz-emotion--wrapper {
+        .emz-image-wrapper {
+            position: relative;
+        }
+    }
+}
+
+@media screen and (min-width: @tabletLandscapeViewportWidth) {
+    .emz-emotion--wrapper {
+        .emz-headline-box {
+            .unitize(left,50);
+            max-width: 60%;
+    
+            h3 {
+                .unitize(font-size,28);
+                .unitize(line-height,33);
+            }
+        }
+    }    
+
+}
+
+@media screen and (min-width: @desktopViewportWidth) {
+    .is--ctl-detail {
+        .emotion--wrapper {
+            margin-top: 0;
+            .unitize(max-width,1550);
+            .unitize-padding(50,70);
+        } 
+
+        .product-slider--arrow {
+            &.arrow--next {
+                .unitize(right,-20);
+            }
+            &.arrow--prev {
+                .unitize(left,-20);
+            }
+        }
+    }
+
+    .emotion--product-slider {
+        .product-slider--title {
+            .unitize(font-size,27);
+        }
+        .product-slider--title ~ .product-slider--content {
+            .unitize(padding-top,65);
+        }
+    }
+    .emz-emotion--wrapper {
+        .emz-image-wrapper {
+            img {
+                .unitize-padding(0,27);
+            }
         }
     }
 }
